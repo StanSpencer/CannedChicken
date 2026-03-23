@@ -4,88 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canned Chicken Recipes | CannedChicken.com</title>
-<meta name="description" content="Discover delicious canned chicken recipes including casseroles, salads, tacos, soups, and quick meals. Easy recipes for every day cooking.">
+<meta name="description" content="Discover delicious canned chicken recipes including casseroles, salads, tacos, soups, and quick meals.">
+
 <style>
-:root {
-  --primary: #ff6f00;
-  --text: #333;
-  --bg: #fafafa;
-}
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-}
-header {
-  background-color: var(--primary);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-header a { color: white; text-decoration: none; }
-nav {
-  background: white;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  border-bottom: 1px solid #ddd;
-}
-nav a { text-decoration: none; color: #333; font-weight: bold; }
-.container { max-width: 1200px; margin: auto; padding: 20px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
-}
-.card:hover { transform: translateY(-5px); }
-.card img { width: 100%; height: 180px; object-fit: cover; }
-.card-content { padding: 15px; }
-.recipe-title { font-size: 18px; font-weight: bold; }
-.rating { color: #ff9800; margin: 5px 0; }
-.meta { font-size: 12px; color: #777; margin-bottom: 8px; }
-.description { font-size: 14px; color: #555; }
-.tags { margin-top: 10px; }
-.tag {
-  display: inline-block;
-  background: #eee;
-  padding: 4px 8px;
-  margin: 2px;
-  border-radius: 6px;
-  font-size: 11px;
-}
-.search-bar { max-width: 600px; margin: 20px auto; display: flex; }
-.search-bar input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; }
-.search-bar button { padding: 10px 20px; border: none; background: var(--primary); color: white; border-radius: 0 5px 5px 0; }
-.sale-banner {
-  background: linear-gradient(135deg, #ff6f00, #ff9800);
-  color: white;
-  padding: 25px;
-  text-align: center;
-  border-radius: 12px;
-  margin-bottom: 30px;
-}
-.sale-banner a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: white;
-  color: #ff6f00;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-}
-footer { margin-top: 40px; background: #333; color: white; text-align: center; padding: 20px; }
+:root { --primary:#ff6f00; --text:#333; --bg:#fafafa; }
+body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); }
+header { background:var(--primary); color:#fff; padding:20px; text-align:center; }
+header a { color:#fff; text-decoration:none; font-size:28px; font-weight:bold; }
+nav { background:#fff; padding:10px; display:flex; justify-content:center; gap:20px; border-bottom:1px solid #ddd; }
+nav a { text-decoration:none; color:#333; font-weight:bold; }
+.container { max-width:1200px; margin:auto; padding:20px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+.card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+.card img { width:100%; height:180px; object-fit:cover; }
+.card-content { padding:15px; }
+.recipe-title { font-size:18px; font-weight:bold; }
+.rating { color:#ff9800; }
+.meta { font-size:12px; color:#777; }
+.description { font-size:14px; color:#555; }
+.tag { display:inline-block; background:#eee; padding:4px 8px; margin:2px; border-radius:6px; font-size:11px; }
+.search-bar { max-width:600px; margin:20px auto; display:flex; }
+.search-bar input { flex:1; padding:10px; border:1px solid #ccc; border-radius:5px 0 0 5px; }
+.search-bar button { padding:10px 20px; border:none; background:var(--primary); color:#fff; border-radius:0 5px 5px 0; cursor:pointer; }
+.sale-banner { background:linear-gradient(135deg,#ff6f00,#ff9800); color:#fff; padding:25px; text-align:center; border-radius:12px; margin-bottom:30px; }
+.sale-banner a { display:inline-block; margin-top:10px; padding:10px 20px; background:#fff; color:#ff6f00; text-decoration:none; border-radius:6px; font-weight:bold; }
+footer { margin-top:40px; background:#333; color:#fff; text-align:center; padding:20px; }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -104,7 +50,7 @@ footer { margin-top: 40px; background: #333; color: white; text-align: center; p
 
 <div class="sale-banner">
   <h2>CannedChicken.com is For Sale</h2>
-  <p>Own this premium food domain perfect for recipes, eCommerce, or a viral food brand.</p>
+  <p>Own this premium food domain perfect for recipes or eCommerce.</p>
   <a href="https://unstoppabledomains.com/d/cannedchicken.com" target="_blank">Buy This Domain</a>
 </div>
 
@@ -113,117 +59,45 @@ footer { margin-top: 40px; background: #333; color: white; text-align: center; p
   <button onclick="searchRecipes()">Search</button>
 </div>
 
-<div class="grid" id="recipeGrid">
+<div class="grid" id="recipeGrid"></div>
 
-<!-- Recipe Cards -->
+</div>
+
+<footer>
+  © 2026 CannedChicken.com
+</footer>
 
 <script>
 const recipes = [
-{
-  title: "Classic Chicken Salad",
-  img: "https://source.unsplash.com/400x300/?chicken,salad",
-  rating: "★★★★★",
-  category: "Healthy",
-  tags: ["quick", "no-cook"],
-  desc: "A creamy and refreshing chicken salad made with canned chicken, mayo, celery, and a hint of lemon. Perfect for sandwiches or lettuce wraps."
-},
-{
-  title: "Chicken Alfredo Pasta",
-  img: "https://source.unsplash.com/400x300/?chicken,pasta",
-  rating: "★★★★☆",
-  category: "Comfort Food",
-  tags: ["pasta", "dinner"],
-  desc: "Rich Alfredo sauce tossed with tender canned chicken and pasta. A fast comfort meal that tastes restaurant-quality."
-},
-{
-  title: "Chicken Tacos",
-  img: "https://source.unsplash.com/400x300/?chicken,tacos",
-  rating: "★★★★★",
-  category: "Quick Meals",
-  tags: ["mexican", "easy"],
-  desc: "Seasoned canned chicken served in warm tortillas with fresh toppings like lettuce, cheese, and salsa."
-},
-{
-  title: "Chicken Casserole",
-  img: "https://source.unsplash.com/400x300/?chicken,casserole",
-  rating: "★★★★★",
-  category: "Comfort Food",
-  tags: ["baked", "family"],
-  desc: "A hearty baked casserole with creamy sauce, canned chicken, cheese, and crispy topping. Perfect for family dinners."
-},
-{
-  title: "Quick Chicken Soup",
-  img: "https://source.unsplash.com/400x300/?chicken,soup",
-  rating: "★★★★☆",
-  category: "Healthy",
-  tags: ["soup", "warm"],
-  desc: "A soothing soup made in minutes using canned chicken, vegetables, and broth. Ideal for cold days or quick comfort."
-},
-{
-  title: "Chicken Wraps",
-  img: "https://source.unsplash.com/400x300/?chicken,wrap",
-  rating: "★★★★☆",
-  category: "Quick Meals",
-  tags: ["lunch", "easy"],
-  desc: "Soft wraps filled with canned chicken, crisp veggies, and flavorful dressing. A perfect grab-and-go meal."
-},
-{
-  title: "Buffalo Chicken Dip",
-  img: "https://source.unsplash.com/400x300/?buffalo,chicken",
-  rating: "★★★★★",
-  category: "Comfort Food",
-  tags: ["party", "spicy"],
-  desc: "Spicy, creamy buffalo chicken dip made with canned chicken, cream cheese, and hot sauce. A party favorite."
-},
-{
-  title: "Chicken Fried Rice",
-  img: "https://source.unsplash.com/400x300/?fried,rice,chicken",
-  rating: "★★★★☆",
-  category: "Quick Meals",
-  tags: ["asian", "one-pan"],
-  desc: "A quick stir-fry combining rice, vegetables, soy sauce, and canned chicken for a satisfying meal."
-},
-{
-  title: "Chicken Quesadillas",
-  img: "https://source.unsplash.com/400x300/?quesadilla",
-  rating: "★★★★★",
-  category: "Quick Meals",
-  tags: ["cheese", "grilled"],
-  desc: "Golden grilled tortillas filled with melted cheese and seasoned canned chicken. Crispy outside, gooey inside."
-}
+{ title:"Classic Chicken Salad", img:"https://source.unsplash.com/400x300/?chicken,salad", rating:"★★★★★", category:"Healthy", tags:["quick","no-cook"], desc:"A creamy and refreshing chicken salad made with canned chicken."},
+{ title:"Chicken Alfredo Pasta", img:"https://source.unsplash.com/400x300/?chicken,pasta", rating:"★★★★☆", category:"Comfort Food", tags:["pasta","dinner"], desc:"Rich Alfredo pasta with canned chicken."},
+{ title:"Chicken Tacos", img:"https://source.unsplash.com/400x300/?chicken,tacos", rating:"★★★★★", category:"Quick Meals", tags:["mexican"], desc:"Simple tacos packed with flavor."},
+{ title:"Chicken Soup", img:"https://source.unsplash.com/400x300/?chicken,soup", rating:"★★★★☆", category:"Healthy", tags:["soup"], desc:"Warm, hearty and fast."}
 ];
 
-function renderRecipes(list) {
-  const grid = document.getElementById('recipeGrid');
-  grid.innerHTML = list.map(r => `
+function renderRecipes(list){
+  const grid=document.getElementById('recipeGrid');
+  grid.innerHTML=list.map(r=>`
     <div class="card">
-      <img src="${r.img}" alt="${r.title}">
+      <img src="${r.img}">
       <div class="card-content">
         <div class="recipe-title">${r.title}</div>
         <div class="rating">${r.rating}</div>
-        <div class="meta">Category: ${r.category}</div>
+        <div class="meta">${r.category}</div>
         <div class="description">${r.desc}</div>
-        <div class="tags">${r.tags.map(t => `<span class='tag'>#${t}</span>`).join('')}</div>
+        <div>${r.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
       </div>
     </div>
   `).join('');
 }
 
-function searchRecipes() {
-  const term = document.getElementById('search').value.toLowerCase();
-  const filtered = recipes.filter(r => r.title.toLowerCase().includes(term) || r.tags.join(' ').includes(term));
-  renderRecipes(filtered);
+function searchRecipes(){
+  const term=document.getElementById('search').value.toLowerCase();
+  renderRecipes(recipes.filter(r=>r.title.toLowerCase().includes(term)));
 }
 
 renderRecipes(recipes);
 </script>
-
-</div>
-</div>
-
-<footer>
-  © 2026 CannedChicken.com | Premium domain available | Built for food lovers
-</footer>
 
 </body>
 </html>
