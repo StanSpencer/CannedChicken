@@ -1,101 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Canned Chicken Recipes | CannedChicken.com</title>
-<meta name="description" content="Discover delicious canned chicken recipes including casseroles, salads, tacos, soups, and quick meals.">
-
-<style>
-body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); }
-header { background:var(--primary); color:#fff; padding:20px; text-align:center; }
-header a { color:#fff; text-decoration:none; font-size:28px; font-weight:bold; }
-nav { background:#fff; padding:10px; display:flex; justify-content:center; gap:20px; border-bottom:1px solid #ddd; }
-nav a { text-decoration:none; color:#333; font-weight:bold; }
-.container { max-width:1200px; margin:auto; padding:20px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
-.card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.08); }
-.card img { width:100%; height:180px; object-fit:cover; }
-.card-content { padding:15px; }
-.recipe-title { font-size:18px; font-weight:bold; }
-.rating { color:#ff9800; }
-.meta { font-size:12px; color:#777; }
-.description { font-size:14px; color:#555; }
-.tag { display:inline-block; background:#eee; padding:4px 8px; margin:2px; border-radius:6px; font-size:11px; }
-.search-bar { max-width:600px; margin:20px auto; display:flex; }
-.search-bar input { flex:1; padding:10px; border:1px solid #ccc; border-radius:5px 0 0 5px; }
-.search-bar button { padding:10px 20px; border:none; background:var(--primary); color:#fff; border-radius:0 5px 5px 0; cursor:pointer; }
-.sale-banner { background:linear-gradient(135deg,#ff6f00,#ff9800); color:#fff; padding:25px; text-align:center; border-radius:12px; margin-bottom:30px; }
-.sale-banner a { display:inline-block; margin-top:10px; padding:10px 20px; background:#fff; color:#ff6f00; text-decoration:none; border-radius:6px; font-weight:bold; }
-footer { margin-top:40px; background:#333; color:#fff; text-align:center; padding:20px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canned Chicken Recipes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50 text-gray-800">
 
-<body>
-
-<header>
-  <a href="https://cannedchicken.com">🍗 CannedChicken.com</a>
-  <div>Easy & Delicious Canned Chicken Recipes</div>
+<!-- Header -->
+<header class="bg-orange-500 text-white p-6 text-center">
+  <a href="https://cannedchicken.com" class="text-3xl font-bold">🍗 CannedChicken.com</a>
+  <p class="mt-2">Easy & Delicious Canned Chicken Recipes</p>
 </header>
 
-<nav>
+<!-- Nav -->
+<nav class="bg-white shadow p-4 flex justify-center gap-6 font-semibold">
   <a href="#">Home</a>
   <a href="#">Quick Meals</a>
   <a href="#">Healthy</a>
   <a href="#">Comfort Food</a>
 </nav>
 
-<div class="container">
+<!-- Container -->
+<div class="max-w-6xl mx-auto p-4">
 
-<div class="sale-banner">
-  <h2>CannedChicken.com is For Sale</h2>
-  <p>Own this premium food domain perfect for recipes or eCommerce.</p>
-  <a href="https://unstoppabledomains.com/d/cannedchicken.com" target="_blank">Buy This Domain</a>
+  <!-- Sale Banner -->
+  <div class="bg-gradient-to-r from-orange-500 to-orange-400 text-white p-6 rounded-xl text-center mb-6">
+    <h2 class="text-2xl font-bold">CannedChicken.com is For Sale</h2>
+    <p class="mt-2">Premium food domain perfect for recipes, eCommerce, or a viral brand.</p>
+    <a href="https://unstoppabledomains.com/d/cannedchicken.com" target="_blank" class="inline-block mt-4 bg-white text-orange-500 px-6 py-2 rounded font-bold">Buy This Domain</a>
+  </div>
+
+  <!-- Search -->
+  <div class="flex max-w-xl mx-auto mb-6">
+    <input id="search" type="text" placeholder="Search recipes..." class="flex-1 p-3 border rounded-l">
+    <button onclick="searchRecipes()" class="bg-orange-500 text-white px-6 rounded-r">Search</button>
+  </div>
+
+  <!-- Grid -->
+  <div id="grid" class="grid md:grid-cols-3 sm:grid-cols-2 gap-6"></div>
+
 </div>
 
-<div class="search-bar">
-  <input type="text" id="search" placeholder="Search recipes...">
-  <button onclick="searchRecipes()">Search</button>
-</div>
-
-<div class="grid" id="recipeGrid"></div>
-
-</div>
-
-<footer>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white text-center p-6 mt-10">
   © 2026 CannedChicken.com
 </footer>
 
 <script>
 const recipes = [
-{ title:"Classic Chicken Salad", img:"https://source.unsplash.com/400x300/?chicken,salad", rating:"★★★★★", category:"Healthy", tags:["quick","no-cook"], desc:"A creamy and refreshing chicken salad made with canned chicken."},
-{ title:"Chicken Alfredo Pasta", img:"https://source.unsplash.com/400x300/?chicken,pasta", rating:"★★★★☆", category:"Comfort Food", tags:["pasta","dinner"], desc:"Rich Alfredo pasta with canned chicken."},
-{ title:"Chicken Tacos", img:"https://source.unsplash.com/400x300/?chicken,tacos", rating:"★★★★★", category:"Quick Meals", tags:["mexican"], desc:"Simple tacos packed with flavor."},
-{ title:"Chicken Soup", img:"https://source.unsplash.com/400x300/?chicken,soup", rating:"★★★★☆", category:"Healthy", tags:["soup"], desc:"Warm, hearty and fast."}
+{title:"Chicken Salad",img:"https://source.unsplash.com/400x300/?chicken,salad",cat:"Healthy",desc:"Creamy chicken salad using canned chicken.",tags:["quick","lunch"]},
+{title:"Chicken Alfredo",img:"https://source.unsplash.com/400x300/?chicken,pasta",cat:"Comfort",desc:"Rich pasta with canned chicken.",tags:["dinner"]},
+{title:"Chicken Tacos",img:"https://source.unsplash.com/400x300/?chicken,tacos",cat:"Quick",desc:"Fast tacos packed with flavor.",tags:["mexican"]},
+{title:"Chicken Soup",img:"https://source.unsplash.com/400x300/?chicken,soup",cat:"Healthy",desc:"Warm and comforting soup.",tags:["easy"]},
+{title:"Buffalo Chicken Dip",img:"https://source.unsplash.com/400x300/?buffalo,chicken",cat:"Comfort",desc:"Spicy party dip.",tags:["party"]},
+{title:"Chicken Wraps",img:"https://source.unsplash.com/400x300/?chicken,wrap",cat:"Quick",desc:"Easy grab-and-go wraps.",tags:["lunch"]}
 ];
 
-function renderRecipes(list){
-  const grid=document.getElementById('recipeGrid');
-  grid.innerHTML=list.map(r=>`
-    <div class="card">
-      <img src="${r.img}">
-      <div class="card-content">
-        <div class="recipe-title">${r.title}</div>
-        <div class="rating">${r.rating}</div>
-        <div class="meta">${r.category}</div>
-        <div class="description">${r.desc}</div>
-        <div>${r.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
+function render(list){
+  document.getElementById('grid').innerHTML = list.map(r=>`
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="${r.img}" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold text-lg">${r.title}</h3>
+        <p class="text-sm text-gray-500">${r.cat}</p>
+        <p class="mt-2 text-sm">${r.desc}</p>
+        <div class="mt-2">${r.tags.map(t=>`<span class="text-xs bg-gray-200 px-2 py-1 mr-1 rounded">#${t}</span>`).join('')}</div>
       </div>
     </div>
   `).join('');
 }
 
 function searchRecipes(){
-  const term=document.getElementById('search').value.toLowerCase();
-  renderRecipes(recipes.filter(r=>r.title.toLowerCase().includes(term)));
+  const term = document.getElementById('search').value.toLowerCase();
+  render(recipes.filter(r=>r.title.toLowerCase().includes(term)));
 }
 
-renderRecipes(recipes);
+render(recipes);
 </script>
 
 </body>
